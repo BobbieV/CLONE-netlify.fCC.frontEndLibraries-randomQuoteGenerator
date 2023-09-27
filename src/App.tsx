@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import quotes from './assets/quotes.json'
-import{ FaTwitter, FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import './App.css'
 
 interface Quote {
@@ -13,19 +14,23 @@ const getRandomQuote = (): Quote => {
 }
 
 const getRandomColor = (): string => {
-  const red = Math.floor(Math.random() * 64);
-  const green = Math.floor(Math.random() * 64);
-  const blue = Math.floor(Math.random() * 64);
+  const red = Math.floor(Math.random() * 128);
+  const green = Math.floor(Math.random() * 128);
+  const blue = Math.floor(Math.random() * 128);
 
   return `rgb(${red}, ${green}, ${blue})`
 ;}
 
 const transition = "all 1s";
 
+const leftQuote = <FontAwesomeIcon icon={faQuoteLeft} size="sm" style={{marginLeft: "10px"}} />
+const rightQuote = <FontAwesomeIcon icon={faQuoteRight} size="sm" style={{marginRight: "10px"}}/>
+//const twitterIcon = <FontAwesomeIcon icon={faXTwitter} color="white" />
+
 function App() {
   const [quote, setQuote] = useState<Quote>(getRandomQuote())
   const[randomColor, setRandomColor] = useState<string>(getRandomColor())
-  
+
   const changeQuote = () => {
     setQuote(getRandomQuote());
   }
@@ -33,9 +38,10 @@ function App() {
     <> <div className="background" style={{backgroundColor: randomColor, transition}}>
       <div id="quote-box">
         <div className="quote-content" style={{color: randomColor, transition}}>
-        <h2 id="text"><FaQuoteLeft size="30" style={{ marginRight: "10px"}} />
+        <h2 id="text">
+          {leftQuote}
           {quote.quote}
-          <FaQuoteRight size="30" style={{ marginLeft: "10px"}} />
+          {rightQuote}
           </h2>
           <h4 id="author">-{quote.author}</h4>
         </div>
@@ -47,7 +53,7 @@ function App() {
     transition,
     marginRight: "10px",
     }}>
-    <FaTwitter color="white"/></a>
+    {}</a>
     <button id="new-quote"
       onClick={changeQuote}
       style={{backgroundColor: randomColor}}
