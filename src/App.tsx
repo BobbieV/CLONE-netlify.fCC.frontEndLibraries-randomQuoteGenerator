@@ -29,10 +29,11 @@ const rightQuote = <FontAwesomeIcon icon={faQuoteRight} size="sm" style={{margin
 
 function App() {
   const [quote, setQuote] = useState<Quote>(getRandomQuote())
-  const[randomColor] = useState<string>(getRandomColor())
+  const[randomColor, setRandomColor] = useState<string>(getRandomColor())
 
   const changeQuote = () => {
     setQuote(getRandomQuote());
+    setRandomColor(getRandomColor());
   }
   return (
     <> <div className="background" style={{backgroundColor: randomColor, transition}}>
