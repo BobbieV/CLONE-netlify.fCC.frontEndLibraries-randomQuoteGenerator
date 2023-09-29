@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import quotes from './assets/quotes.json'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import './App.css'
 
 interface Quote {
@@ -23,8 +23,8 @@ const getRandomColor = (): string => {
 
 const transition = "all 1s";
 
-const leftQuote = <FontAwesomeIcon icon={faQuoteLeft} size="sm" style={{marginLeft: "10px"}} />
-const rightQuote = <FontAwesomeIcon icon={faQuoteRight} size="sm" style={{marginRight: "10px"}}/>
+//const leftQuote = <FontAwesomeIcon icon={faQuoteLeft} size="sm" style={{marginLeft: "10px"}} />
+//const rightQuote = <FontAwesomeIcon icon={faQuoteRight} size="sm" style={{marginRight: "10px"}}/>
 //const twitterIcon = <FontAwesomeIcon icon={faXTwitter} color="white" />
 
 function App() {
@@ -40,9 +40,9 @@ function App() {
       <div id="quote-box">
         <div className="quote-content" style={{color: randomColor, transition}}>
         <h2 id="text">
-          {leftQuote}
+          //{leftQuote}
           {quote.quote}
-          {rightQuote}
+          //{rightQuote}
           </h2>
           <h4 id="author">-{quote.author}</h4>
         </div>
